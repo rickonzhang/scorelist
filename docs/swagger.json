@@ -3,19 +3,50 @@
     "info": {
         "description": "This is a sample server celler server.",
         "title": "Swagger Example API",
-        "termsOfService": "https://www.topgoer.com",
-        "contact": {
-            "name": "www.topgoer.com",
-            "url": "https://www.topgoer.com",
-            "email": "me@razeen.me"
-        },
+        "termsOfService": "https://github.com/rickonzhang/scorelist.git",
+        "contact": {},
         "license": {
             "name": "Apache 2.0",
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         },
         "version": "1.0"
     },
-    "host": "127.0.0.1:8080",
-    "basePath": "/api/v1",
-    "paths": {}
+    "host": "127.0.0.1:9000",
+    "paths": {
+        "/v1/islike": {
+            "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Is Like",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "default": "\"name\"",
+                        "description": "name",
+                        "name": "name",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"msg\": \"Success\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"msg\": \"Failure\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

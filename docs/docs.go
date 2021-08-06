@@ -18,12 +18,8 @@ var doc = `{
     "info": {
         "description": "{{.Description}}",
         "title": "{{.Title}}",
-        "termsOfService": "https://www.topgoer.com",
-        "contact": {
-            "name": "www.topgoer.com",
-            "url": "https://www.topgoer.com",
-            "email": "me@razeen.me"
-        },
+        "termsOfService": "https://github.com/rickonzhang/scorelist.git",
+        "contact": {},
         "license": {
             "name": "Apache 2.0",
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
@@ -32,7 +28,43 @@ var doc = `{
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
-    "paths": {}
+    "paths": {
+        "/v1/islike": {
+            "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Is Like",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "default": "\"name\"",
+                        "description": "name",
+                        "name": "name",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"msg\": \"Success\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"msg\": \"Failure\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
 }`
 
 type swaggerInfo struct {
@@ -47,8 +79,8 @@ type swaggerInfo struct {
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
 	Version:     "1.0",
-	Host:        "127.0.0.1:8080",
-	BasePath:    "/api/v1",
+	Host:        "127.0.0.1:9000",
+	BasePath:    "",
 	Schemes:     []string{},
 	Title:       "Swagger Example API",
 	Description: "This is a sample server celler server.",

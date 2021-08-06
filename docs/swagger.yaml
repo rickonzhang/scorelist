@@ -1,16 +1,35 @@
-basePath: /api/v1
-host: 127.0.0.1:8080
+host: 127.0.0.1:9000
 info:
-  contact:
-    email: me@razeen.me
-    name: www.topgoer.com
-    url: https://www.topgoer.com
+  contact: {}
   description: This is a sample server celler server.
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  termsOfService: https://www.topgoer.com
+  termsOfService: https://github.com/rickonzhang/scorelist.git
   title: Swagger Example API
   version: "1.0"
-paths: {}
+paths:
+  /v1/islike:
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - default: '"name"'
+        description: name
+        in: formData
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"msg": "Success"}'
+          schema:
+            type: string
+        "500":
+          description: '{"msg": "Failure"}'
+          schema:
+            type: string
+      summary: Is Like
 swagger: "2.0"

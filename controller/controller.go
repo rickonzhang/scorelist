@@ -99,7 +99,13 @@ func DeleteAScore(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{id:"deleted"})
 	}
 }
-
+// @Summary Is Like
+// @Accept mpfd
+// @Produce  json
+// @Param name formData string true "name" default(name)
+// @Success 200 {string} string "{"msg": "Success"}"
+// @Failure 500 {string} string "{"msg": "Failure"}"
+// @Router /v1/islike [post]
 func IsLike(c *gin.Context){
 	//chat_id := c.PostForm("chat_id")
 	//auth_code := c.PostForm("auth_code")

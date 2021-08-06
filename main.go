@@ -2,32 +2,22 @@ package main
 
 import (
 	"fmt"
+	_ "github.com/swaggo/gin-swagger/swaggerFiles"
 	"os"
 	"scorelist/dao"
 	_ "scorelist/docs"
 	"scorelist/models"
 	"scorelist/routers"
 	"scorelist/setting"
-	ginSwagger "github.com/swaggo/gin-swagger"
-	_ "github.com/swaggo/gin-swagger/swaggerFiles"
-	_ "scorelist/docs"
 )
 
 // @title Swagger Example API
 // @version 1.0
 // @description This is a sample server celler server.
-// @termsOfService https://www.topgoer.com
-
-// @contact.name www.topgoer.com
-// @contact.url https://www.topgoer.com
-// @contact.email me@razeen.me
-
+// @termsOfService https://github.com/rickonzhang/scorelist.git
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-
-// @host 127.0.0.1:8080
-// @BasePath /api/v1
-
+// @host 127.0.0.1:9000
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Usage：./bubble conf/config.ini")

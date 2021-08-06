@@ -1,0 +1,25 @@
+version: "2.2"
+services:
+
+  mysql:
+    image: "mysql:5.7"
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: "test"            # 与配置文件中的数据库名称保持一致，如果不指定，后端容器连接数据库会出错。
+      MYSQL_ROOT_PASSWORD: "123456"   # mysql 的密码
+      MYSQL_USER: "root"
+
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci  # 设置数据库字符集
+    restart: always # 自动重启
+
+  scorelist:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    depends_on:
+      - mysql
+#    ports:
+#      - 8033
+    restart: always
+#    links:
+#      - mysql:meta_mysql  # 同上
